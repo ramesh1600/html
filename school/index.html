@@ -79,7 +79,7 @@ func newQn() {
 }
 function clickQn() {
     if ( mode === "nextQn" ) {
-        newQn()
+        newQn();
         mode = "checkAns"
     }   else if ( mode === "checkAns" ) {
         ans = document.getElementById("ans").value
@@ -87,7 +87,7 @@ function clickQn() {
             if ( ans === correctAns) {
                 document.getElementById("qn").style.backgroundColor = 'green'
                 document.getElementById("ans").value = ""
-                newQn()
+                newQn();
                 mode = "checkAns"
             } else {
                 document.getElementById("qn").style.backgroundColor = 'red'
