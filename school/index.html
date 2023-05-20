@@ -72,14 +72,9 @@ let mode = "nextQn"
 let num1 = 0
 let num2 = 0
 clickQn()
-func newQn() {
-        num1 = Math.floor(Math.random() * 12) + 1;
-        num2 = Math.floor(Math.random() * 12) + 1;
-        document.getElementById("qn").innerHTML = num1 + "  x  " + num2;
-}
 function clickQn() {
     if ( mode === "nextQn" ) {
-        newQn();
+        newQn()
         mode = "checkAns"
     }   else if ( mode === "checkAns" ) {
         ans = document.getElementById("ans").value
@@ -87,12 +82,17 @@ function clickQn() {
             if ( ans === correctAns) {
                 document.getElementById("qn").style.backgroundColor = 'green'
                 document.getElementById("ans").value = ""
-                newQn();
+                newQn()
                 mode = "checkAns"
             } else {
                 document.getElementById("qn").style.backgroundColor = 'red'
             }
     }
+}
+func newQn() {
+        num1 = Math.floor(Math.random() * 12) + 1;
+        num2 = Math.floor(Math.random() * 12) + 1;
+        document.getElementById("qn").innerHTML = num1 + "  x  " + num2;
 }
 </script>
 </body>
