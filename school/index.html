@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> ஹாய் கவின் 😎</title>
+    <style>
+        body {
+            margin-left: 200px;
+            background: #ffffff url("beach.avif") no-repeat 10% -10% ;
+        }
+
+        .qn {
+            background-color: green;
+            font-size: 100px;
+            font-family: Papyrus, Serif ;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            height: 50%;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .ans {
+            background-color: white;
+            font-size: 80px;
+            font-family: Papyrus, Serif ;
+            border: none;
+            color: olivedrab;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            width: 99%;
+            height: 45%;
+            margin: 4px 2px;
+        }
+
+        .right {
+            border: none;
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 30%;
+            height: 60%;
+            background-color: wheat;
+            text-align: center;
+            padding: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="right">
+    <button id="qn" class="qn" onclick=clickQn()></button>
+    <textarea id="ans" class="ans"></textarea>
+</div>
+
+<script>
+document.getElementById("ans").addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    clickQn()
+  }
+});
+let mode = "nextQn"
+let num1 = 0
+let num2 = 0
+clickQn()
+function clickQn() {
+    if ( mode === "nextQn" ) {
+        num1 = Math.floor(Math.random() * 12) + 1;
+        num2 = Math.floor(Math.random() * 12) + 1;
+        document.getElementById("qn").innerHTML = num1 + " x " + num2;
+        mode = "checkAns"
+    }   else if ( mode === "checkAns" ) {
+        ans = document.getElementById("ans").value
+            correctAns = (num1 * num2).toString()
+            if ( ans === correctAns) {
+                document.getElementById("qn").style.backgroundColor = 'green'
+                document.getElementById("ans").value = ""
+                num1 = Math.floor(Math.random() * 12) + 1;
+                num2 = Math.floor(Math.random() * 12) + 1;
+                document.getElementById("qn").innerHTML = num1 + " x " + num2;
+                mode = "checkAns"
+            } else {
+                document.getElementById("qn").style.backgroundColor = 'red'
+            }
+    }
+}
+</script>
+
+
+</body>
+</html>
