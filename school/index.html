@@ -87,9 +87,7 @@ function clickQn() {
             if ( ans === correctAns) {
                 document.getElementById("qn").style.backgroundColor = 'green'
                 document.getElementById("ans").value = ""
-                num1 = Math.floor(Math.random() * 12) + 1;
-                num2 = Math.floor(Math.random() * 12) + 1;
-                document.getElementById("qn").innerHTML = num1 + " x " + num2;
+                newQn()
                 mode = "checkAns"
             } else {
                 document.getElementById("qn").style.backgroundColor = 'red'
